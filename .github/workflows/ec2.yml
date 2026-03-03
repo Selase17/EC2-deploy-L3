@@ -2,8 +2,12 @@ name: Deploy App to EC2
 
 on:
   push:
-    branches:
-      - main
+    paths:       # Only trigger the workflow when files in these paths are changed
+      - css/**
+      - images/**
+      - index.html
+      - Dockerfile
+
 env:
     TARGET_DIR: home
     EC2_USER: ubuntu
